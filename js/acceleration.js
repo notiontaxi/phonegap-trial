@@ -44,6 +44,7 @@ $(function() {
     //
     function onSuccess(acceleration) {
         var element = $('#container');
+        console.log(acceleration.x);
         element.innerHTML = 'Acceleration X: ' + acceleration.x + '<br />' +
                             'Acceleration Y: ' + acceleration.y + '<br />' +
                             'Acceleration Z: ' + acceleration.z + '<br />' +
