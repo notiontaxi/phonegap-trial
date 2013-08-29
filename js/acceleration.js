@@ -52,8 +52,10 @@ $(function() {
 
     // onError: Failed to get the acceleration
     //
-    function onError() {
-        alert('onError!');
+    function onError(e) {
+        var element = $('#container');
+        element.innerHTML = 'ERROR';
+        console.log(e);
     }
 
 
