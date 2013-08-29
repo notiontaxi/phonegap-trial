@@ -1,23 +1,30 @@
-window.foo = function(){
-    // Wait for Cordova to load
-    console.log('test')
-    document.addEventListener("deviceready", onDeviceReady, false);
-    console.log('test')
+$(function() {
+
+  $('#acc-action').click(function(e){
+    console.log('click');
+      // Wait for Cordova to load
+    if(!watching){
+      document.addEventListener("deviceready", onDeviceReady, false);
+      watching = true;
+    }
+    });
 
     // The watch id references the current `watchAcceleration`
     var watchID = null;
+    var watching = false();
 
+    
 
     // Cordova is ready
     //
-    onDeviceReady = function() {
+    function onDeviceReady() {
         startWatch();
     }
 
     // Start watching the acceleration
     //
     function startWatch() {
-
+        console.log('start watching');
         // Update acceleration every 3 seconds
         var options = { frequency: 50 };
 
@@ -48,4 +55,6 @@ window.foo = function(){
     function onError() {
         alert('onError!');
     }
-}
+
+
+});
