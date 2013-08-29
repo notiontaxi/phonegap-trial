@@ -43,8 +43,7 @@ $(function() {
     // onSuccess: Get a snapshot of the current acceleration
     //
     function onSuccess(acceleration) {
-        var element = $('#container');
-        console.log(acceleration.x);
+        var element = $('#content-container');
         element.innerHTML = 'Acceleration X: ' + acceleration.x + '<br />' +
                             'Acceleration Y: ' + acceleration.y + '<br />' +
                             'Acceleration Z: ' + acceleration.z + '<br />' +
