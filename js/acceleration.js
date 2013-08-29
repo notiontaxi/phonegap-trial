@@ -1,11 +1,9 @@
 $(function() {
 
-  $('#acc-action').click(function(e){
-      console.log("start")
-      
-      // Wait for Cordova to load
-      document.addEventListener("deviceready", onDeviceReady, false);
-    });
+
+    // Wait for Cordova to load
+    document.addEventListener("deviceready", onDeviceReady, false);
+
 
     // The watch id references the current `watchAcceleration`
     var watchID = null;
