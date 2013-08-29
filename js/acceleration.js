@@ -10,7 +10,7 @@ window.foo = function(){
 
     // Cordova is ready
     //
-    window.foo.prototype.onDeviceReady = function() {
+    onDeviceReady = function() {
         startWatch();
     }
 
