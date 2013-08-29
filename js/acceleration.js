@@ -3,7 +3,7 @@ $(function() {
 
     // Wait for Cordova to load
     document.addEventListener("deviceready", onDeviceReady, false);
-
+    console.log('test')
 
     // The watch id references the current `watchAcceleration`
     var watchID = null;
