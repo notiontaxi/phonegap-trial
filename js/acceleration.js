@@ -1,7 +1,7 @@
 $(function() {
 
   $('#acc-action').click(function(e){
-    console.log('click');
+    console.log('click...');
       // Wait for Cordova to load
     if(!watching){
       document.addEventListener("deviceready", onDeviceReady, false);
