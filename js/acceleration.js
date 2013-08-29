@@ -1,5 +1,3 @@
-$(function() {
-
 
     // Wait for Cordova to load
     console.log('test')
@@ -50,6 +48,3 @@ $(function() {
     function onError() {
         alert('onError!');
     }
-
-
-});
