@@ -1,4 +1,4 @@
-
+window.foo = function(){
     // Wait for Cordova to load
     console.log('test')
     document.addEventListener("deviceready", onDeviceReady, false);
@@ -10,7 +10,7 @@
 
     // Cordova is ready
     //
-    function onDeviceReady() {
+    window.foo.prototype.onDeviceReady = function() {
         startWatch();
     }
 
@@ -48,3 +48,4 @@
     function onError() {
         alert('onError!');
     }
+}
