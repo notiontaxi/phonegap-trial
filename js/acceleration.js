@@ -2,6 +2,7 @@ $(function() {
 
 
     // Wait for Cordova to load
+    console.log('test')
     document.addEventListener("deviceready", onDeviceReady, false);
     console.log('test')
 
