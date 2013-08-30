@@ -17,9 +17,10 @@ $(function() {
     // The watch id references the current `watchAcceleration`
     var watchID = null;
     var watching = false;
-    var $canvas = $('#myCanvas');
-    var ctx = $canvas[0].getContext("2d");
-
+    var $canvas = $("#myCanvas");
+    var canvas = $canvas[0];
+    var ctx = canvas.getContext("2d");
+    
     
 
     // Cordova is ready
@@ -34,23 +35,20 @@ $(function() {
     function startWatch() {
         console.log('start watching');
         // Update acceleration every 3 seconds
-        var options = { frequency: 75 };
+        var options = { frequency: 200 };
 
         watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, options);
     }
 
     function initializeCanvas(){
-
       $canvas.css({
           width:'100%'
         , height:'100%'
       })
 
-      console.log("setting canvas rect to: width="+$canvas.css('width')+" height="+$canvas.css('height'))
-
-      ctx.rect(0,0,$canvas.css('width'),$canvas.css('height'));
-      ctx.fillStyle="red";
-      ctx.fill();
+      console.log("setting canvas rect to: width="+parseFloat($canvas.css('width'))+" height="+parseFloat($canvas.css('height')))
+      
+      ctx.rect(0,0,parseFloat($canvas.css('width')),parseFloat($canvas.css('height')));
     }
 
 
