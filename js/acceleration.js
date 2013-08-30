@@ -1,3 +1,8 @@
+/*
+Modified example from:
+http://docs.phonegap.com/en/3.0.0/cordova_accelerometer_accelerometer.md.html#Accelerometer
+*/
+
 $(function() {
 
   $('#acc-action').click(function(e){
@@ -12,12 +17,15 @@ $(function() {
     // The watch id references the current `watchAcceleration`
     var watchID = null;
     var watching = false();
+    var canvas = $('#myCanvas');
+    var ctx = canvas.getContext("2d");
 
     
 
     // Cordova is ready
     //
     function onDeviceReady() {
+        initializeCanvas();
         startWatch();
     }
 
@@ -31,6 +39,19 @@ $(function() {
         watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, options);
     }
 
+    function initializeCanvas(){
+
+      canvas.css({
+          width:'100%'
+        , height:'100%'
+      })
+
+      ctx.rect(0,0,canvas.css('width'),canvas.css('height'));
+      ctx.fillStyle="red";
+      ctx.fill();
+    }
+
+
     // Stop watching the acceleration
     //
     function stopWatch() {
@@ -43,12 +64,13 @@ $(function() {
     // onSuccess: Get a snapshot of the current acceleration
     //
     function onSuccess(acceleration) {
-        var element = $('#content-container');
-        var text = 'Acceleration X: ' + acceleration.x + '<br />' +
-                            'Acceleration Y: ' + acceleration.y + '<br />' +
-                            'Acceleration Z: ' + acceleration.z + '<br />' +
-                            'Timestamp: '      + acceleration.timestamp + '<br />';
-        element.html(text);
+        var element = $('#text');
+        //var text = 'Acceleration X: ' + acceleration.x;
+        var color = "#"acceleration.x*20+"00";
+        element.html(color);
+
+        ctx.fillStyle= acceleration.x*20+"00";
+        ctx.fill();
     }
 
     // onError: Failed to get the acceleration
