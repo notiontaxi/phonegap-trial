@@ -13,15 +13,13 @@ $(function() {
       watching = true;
     }
     });
-
     // The watch id references the current `watchAcceleration`
     var watchID = null;
     var watching = false;
-    var $canvas = $("#myCanvas");
-    var canvas = $canvas[0];
-    var ctx = canvas.getContext("2d");
-    
-    
+    var $canvas;
+    var canvas;
+    var ctx;
+       
 
     // Cordova is ready
     //
@@ -41,6 +39,11 @@ $(function() {
     }
 
     function initializeCanvas(){
+
+      $canvas = $("#myCanvas");
+      canvas = $canvas[0];
+      ctx = canvas.getContext("2d");
+
       $canvas.css({
           width:'100%'
         , height:'100%'
