@@ -13,6 +13,9 @@ $(function() {
       watching = true;
     }
     });
+
+
+document.addEventListener("deviceready", onDeviceReady, false);
     // The watch id references the current `watchAcceleration`
     var watchID = null;
     var watching = false;
