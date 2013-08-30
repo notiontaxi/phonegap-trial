@@ -16,9 +16,9 @@ $(function() {
 
     // The watch id references the current `watchAcceleration`
     var watchID = null;
-    var watching = false();
-    var canvas = $('#myCanvas');
-    var ctx = canvas.getContext("2d");
+    var watching = false;
+    var $canvas = $('#myCanvas');
+    var ctx = $canvas[0].getContext("2d");
 
     
 
@@ -41,12 +41,14 @@ $(function() {
 
     function initializeCanvas(){
 
-      canvas.css({
+      $canvas.css({
           width:'100%'
         , height:'100%'
       })
 
-      ctx.rect(0,0,canvas.css('width'),canvas.css('height'));
+      console.log("setting canvas rect to: width="+$canvas.css('width')+" height="+$canvas.css('height'))
+
+      ctx.rect(0,0,$canvas.css('width'),$canvas.css('height'));
       ctx.fillStyle="red";
       ctx.fill();
     }
@@ -66,10 +68,10 @@ $(function() {
     function onSuccess(acceleration) {
         var element = $('#text');
         //var text = 'Acceleration X: ' + acceleration.x;
-        var color = "#"acceleration.x*20+"00";
+        var color = "#"+Math.round(acceleration.x)*20+"5050";
         element.html(color);
 
-        ctx.fillStyle= acceleration.x*20+"00";
+        ctx.fillStyle = color;
         ctx.fill();
     }
 
