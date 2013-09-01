@@ -36,7 +36,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
     function startWatch() {
         console.log('start watching');
         // Update acceleration every 3 seconds
-        var options = { frequency: 200 };
+        var options = { frequency: 50 };
 
         watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, options);
     }
@@ -48,13 +48,13 @@ document.addEventListener("deviceready", onDeviceReady, false);
       ctx = canvas.getContext("2d");
 
       $canvas.css({
-          width:'100%'
-        , height:'100%'
+          width:'200px'
+        , height:'200px'
       })
 
       console.log("setting canvas rect to: width="+parseFloat($canvas.css('width'))+" height="+parseFloat($canvas.css('height')))
-      
-      ctx.rect(0,0,parseFloat($canvas.css('width')),parseFloat($canvas.css('height')));
+
+      ctx.rect(40,40,200,200);
     }
 
 
