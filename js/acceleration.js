@@ -14,8 +14,6 @@ $(function() {
     }
     });
 
-
-document.addEventListener("deviceready", onDeviceReady, false);
     // The watch id references the current `watchAcceleration`
     var watchID = null;
     var watching = false;
@@ -47,14 +45,15 @@ document.addEventListener("deviceready", onDeviceReady, false);
       canvas = $canvas[0];
       ctx = canvas.getContext("2d");
 
-      $canvas.css({
-          width:'200px'
-        , height:'200px'
-      })
+      var $referenceElement = $("#acc-action")
+      var width = parseFloat($referenceElement.css("width"));
 
-      console.log("setting canvas rect to: width="+parseFloat($canvas.css('width'))+" height="+parseFloat($canvas.css('height')))
+      canvas.width = width;
+      canvas.height = 200;
 
-      ctx.rect(40,40,200,200);
+      //console.log("setting canvas rect to: width="+parseFloat($canvas.css('width'))+" height="+parseFloat($canvas.css('height')))
+
+      ctx.rect(0,0,200,200);
     }
 
 
@@ -72,7 +71,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
     function onSuccess(acceleration) {
         var element = $('#text');
         //var text = 'Acceleration X: ' + acceleration.x;
-        var color = "#"+Math.round(acceleration.x)*20+"5050";
+        var color = "#"+Math.round(acceleration.x)*20+""+Math.round(acceleration.y)*20+"50";
         element.html(color);
 
         ctx.fillStyle = color;
