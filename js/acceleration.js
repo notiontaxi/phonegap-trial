@@ -17,10 +17,7 @@ $(function() {
     // The watch id references the current `watchAcceleration`
     var watchID = null;
     var watching = false;
-    var $canvas;
-    var canvas;
-    var ctx;
-       
+    var currentContext;
 
     // Cordova is ready
     //
@@ -41,20 +38,22 @@ $(function() {
 
     function initializeCanvas(){
 
-      $canvas = $("#myCanvas");
-      canvas = $canvas[0];
-      ctx = canvas.getContext("2d");
-
       var $referenceElement = $("#acc-action")
       var width = parseFloat($referenceElement.css("width"));
 
-      canvas.width = width;
-      canvas.height = 200;
-
-      //console.log("setting canvas rect to: width="+parseFloat($canvas.css('width'))+" height="+parseFloat($canvas.css('height')))
-
-      ctx.rect(0,0,200,200);
+      currentContext = createContext(width, 200)
+      currentContext.rect(0,0,200,200);
     }
+
+    function createContext(width, height) {
+        var canvas = document.createElement('canvas');
+        canvas.width = width
+        canvas.height = height
+
+        var parent = $('#content')
+        parent.append(canvas)
+        return canvas.getContext("2d")
+    }    
 
 
     // Stop watching the acceleration
@@ -73,9 +72,9 @@ $(function() {
         //var text = 'Acceleration X: ' + acceleration.x;
         var color = "#"+Math.round(acceleration.x)*20+""+Math.round(acceleration.y)*20+"50";
         element.html(color);
-
-        ctx.fillStyle = color;
-        ctx.fill();
+        
+        currentContext.fillStyle = color;
+        currentContext.fill();
     }
 
     // onError: Failed to get the acceleration
