@@ -41,7 +41,8 @@ $(function() {
       var $referenceElement = $("#acc-action")
       var width = parseFloat($referenceElement.css("width"));
 
-      currentContext = createContext(width, 200)
+      //currentContext = createContext(width, 200)
+      currentContext = document.getElementById("myCanvas").getContext("2d")
       currentContext.rect(0,0,200,200);
     }
 
@@ -50,7 +51,7 @@ $(function() {
         canvas.width = width
         canvas.height = height
 
-        var parent = $('#content')
+        var parent = $('#content-container')
         parent.append(canvas)
         return canvas.getContext("2d")
     }    
