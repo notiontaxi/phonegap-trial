@@ -22,7 +22,7 @@ html, body {
     height   : auto;
 }
 
-#myCanvas{
+.content-canvas{
   height:100%;
 }
 
