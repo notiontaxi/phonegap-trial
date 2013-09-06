@@ -27,13 +27,13 @@ $(function() {
     }
 
     function startWatching() {
-        var options = { frequency: 200 };
+        var options = { frequency: 300 };
         watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, options);
         console.log('start acc watching');
     }    
 
     function onSuccess(acceleration) {
-        var element = $('#text');
+        var $element = $('#text');
 
         var r = (Math.round(acceleration.x)*20)%245
         var g = (Math.round(acceleration.y)*20)%245
@@ -48,15 +48,14 @@ $(function() {
         b += 10  
 
         var color = "#"+r+""+g+""+b;
+        $canvas.css('background-color', color)
+
         var invertedColor = "#"+255-r+""+255-g+""+255-b;
-
         var text = color+" \n"+"X:"+acceleration.x+" Y:"+acceleration.y+" Z:"+acceleration.z
+        $element.css('color', invertedColor)
+        $element.html(text)   
 
-        element.html(text)    
-        $canvas.css({
-            'background-color' : color
-          , 'color': invertedColor
-        });
+        
     }
 
     function onError(e) {
