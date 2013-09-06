@@ -27,16 +27,27 @@ $(function() {
         navigator.geolocation.getCurrentPosition(drawMap, onError);
     }
 
-    function drawMap(myLocation) {
+    function drawMap(myLocation){
       console.log('starting geo example');
-      var mapOptions = {
-        zoom: 8,
-        center: new google.maps.LatLng(myLocation.coords.latitude, myLocation.coords.longitude),
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      };
 
-      map = new google.maps.Map($canvas[0], mapOptions);
-    }    
+      var myPosition = new google.maps.LatLng(myLocation.coords.latitude,myLocation.coords.longitude)
+
+      var mapOptions = {
+        zoom: 15,
+        center: myPosition,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
+
+      // draw map and center at your position
+      var map = new google.maps.Map($canvas[0], mapOptions)
+
+      // place pake at your position
+      var marker = new google.maps.Marker({
+            position: myPosition,
+            map: map,
+            title: 'Your position'
+        })
+    }
 
     function stopWatching() {
       console.log('stopping geo example');
