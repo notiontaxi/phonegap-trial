@@ -24,9 +24,9 @@ $(function() {
   }
 
   function drawPicture(data){
-    image = $('picture-frame')[0]
-    smallImage.style.display = 'block'
-    smallImage.src = "data:image/jpeg;base64," + data
+    image = $('#picture-frame')[0]
+    image.style.display = 'block'
+    image.src = "data:image/jpeg;base64," + data
   }
 
   function onError(e) {
