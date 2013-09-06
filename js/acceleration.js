@@ -33,7 +33,7 @@ $(function() {
     }    
 
     function onSuccess(acceleration) {
-        var $element = $('#text');
+        var $element = $('#acc-text');
 
         var r = (Math.round(acceleration.x)*20)%245
         var g = (Math.round(acceleration.y)*20)%245
