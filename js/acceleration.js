@@ -43,9 +43,9 @@ $(function() {
         g = (g < 0) ? (g * -1) : g
         b = (b < 0) ? (b * -1) : b
 
-        r = 10;
-        g = 10;
-        b = 10 ; 
+        r += 10;
+        g += 10;
+        b += 10 ; 
 
         var color = 'rgb('+r+','+g+','+b+')';
         $canvas.css('background-color', color)
