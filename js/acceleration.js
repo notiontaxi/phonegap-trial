@@ -4,7 +4,7 @@ $(function() {
 
   var watchID = null
   var watching = false
-  var $canvas = $('#myCanvas')
+  var $canvas = $('#acc-canvas')
 
 
   $('#acc-action').click(function(e){
@@ -59,7 +59,7 @@ $(function() {
     }
 
     function onError(e) {
-        var element = $('#container');
+        var element = $('#acc-text');
         element.innerHTML = 'ERROR';
         console.log(e);
     }
