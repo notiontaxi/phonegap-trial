@@ -1,13 +1,13 @@
 html, body {
     height : 100%;
 }
-#acceleration {
+.page {
     height : 100%;
 }
 .ui-header {
     height : 40px;
 }
-#acceleration .ui-content {
+.page .ui-content {
     position : absolute;
     top      : 40px;
     right    : 0;
@@ -31,6 +31,6 @@ html, body {
   height: auto;
 }
 
-#text{
+#acc-text{
   text-shadow:0px;
 }
