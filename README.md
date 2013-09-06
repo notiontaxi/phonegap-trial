@@ -113,4 +113,5 @@ In this repository you can find a sample application, where you can see
 ### Literature ###
 
 ROSS, Marcus:  PhoneGap (2013).
+  
 LUNNY, Andrew: PhoneGap Beginner’s Guide (2011).
