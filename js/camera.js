@@ -19,7 +19,7 @@ $(function() {
         quality: 50 ,
         destinationType: destinationType.DATA_URL 
       }
-    }
+    )}
   )
 
 
