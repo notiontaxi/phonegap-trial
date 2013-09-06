@@ -1,110 +1,70 @@
-/*
-Modified example from:
-http://docs.phonegap.com/en/3.0.0/cordova_accelerometer_accelerometer.md.html#Accelerometer
-*/
 
 $(function() {
 
-  //window.addEventListener('resize', resizeCanvas, false)
+
+  var watchID = null
+  var watching = false
+  var $canvas = $('#myCanvas')
+
 
   $('#acc-action').click(function(e){
-    console.log('click...');
-      // Wait for Cordova to load
+    console.log('start acc watching');
     if(!watching){
       document.addEventListener("deviceready", onDeviceReady, false);
       watching = true;
     }
     });
 
-    // The watch id references the current `watchAcceleration`
-    var watchID = null
-    var watching = false
-    var currentContext
-    var canvas = document.createElement('canvas')
+  $('#acc-action-stop').click(function(e){
+    console.log('stop acc watching');
+    if(watching){
+      stopWatching();
+      watching = true;
+    }
+    });  
 
-    // Cordova is ready
-    //
+    // Wait for cordova
     function onDeviceReady() {
-        initializeCanvas();
-        startWatch();
+        startWatching();
     }
 
-    // Start watching the acceleration
-    //
-    function startWatch() {
-        console.log('start watching');
-        // Update acceleration every 3 seconds
+    function startWatching() {
         var options = { frequency: 50 };
-
         watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, options);
-    }
-
-    function initializeCanvas(){
-
-      var $referenceElement = $("#acc-action")
-      var width = parseFloat($referenceElement.css("width"));
-
-      //currentContext = createContext(width, 200)
-      var canvas = document.getElementById("myCanvas")
-
-
-      canvas.width  = 300
-      canvas.height = 300
-      canvas.style.width  = '300px'
-      canvas.style.height = '300px'
-      canvas.style.top  = '0px'
-      canvas.style.left = '0px'      
-
-      //resizeCanvas()
-      currentContext = document.getElementById("myCanvas").getContext("2d")
-      currentContext.clearRect( 0, 0, currentContext.canvas.width, currentContext.canvas.height)
-      currentContext.rect(0,0,300,300);
-    }
-
-    function createContext(width, height) {
-        
-        canvas.width = width
-        canvas.height = height
-
-        var parent = $('#content-container')
-        parent.append(canvas)
-        return canvas.getContext("2d")
     }    
 
-        
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+    function onSuccess(acceleration) {
+        var element = $('#text');
+        //var text = 'Acceleration X: ' + acceleration.x;
+
+        var r = Math.round(acceleration.x)*20)%255
+        var g = Math.round(acceleration.y)*20)%255
+        var b = Math.round(acceleration.y)*20)%255
+
+        var color = "#"+r+""+g+""+b;
+        var invertedColor = "#"+255-r+""+255-g+""+255-b;
+
+        element.html(color)    
+        $canvas.css({
+            background-color : color
+          , color: invertedColor
+        });
+    }
+
+    function onError(e) {
+        var element = $('#container');
+        element.innerHTML = 'ERROR';
+        console.log(e);
     }
         
-    // Stop watching the acceleration
-    //
-    function stopWatch() {
+
+    function stopWatching() {
         if (watchID) {
             navigator.accelerometer.clearWatch(watchID);
             watchID = null;
         }
     }
 
-    // onSuccess: Get a snapshot of the current acceleration
-    //
-    function onSuccess(acceleration) {
-        var element = $('#text');
-        //var text = 'Acceleration X: ' + acceleration.x;
-        var color = "#"+Math.round(acceleration.x)*20+""+Math.round(acceleration.y)*20+"50";
-        element.html(color);
-        
-        currentContext.fillStyle = color;
-        currentContext.fill();
-    }
-
-    // onError: Failed to get the acceleration
-    //
-    function onError(e) {
-        var element = $('#container');
-        element.innerHTML = 'ERROR';
-        console.log(e);
-    }
 
 
 });

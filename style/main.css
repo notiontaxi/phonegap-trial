@@ -1,0 +1,32 @@
+html, body {
+    height : 100%;
+}
+#acceleration {
+    height : 100%;
+}
+.ui-header {
+    height : 40px;
+}
+#acceleration .ui-content {
+    position : absolute;
+    top      : 40px;
+    right    : 0;
+    bottom   : 39px;
+    left     : 0;
+}
+.ui-footer {
+    position : absolute;
+    bottom   : 0;
+    left     : 0;
+    width    : 100%;
+    height   : auto;
+}
+
+#myCanvas{
+  height:100%;
+}
+
+.center-button{
+  margin: 5px 10px;
+  height: auto;
+}
