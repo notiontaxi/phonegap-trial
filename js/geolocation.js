@@ -54,9 +54,10 @@ $(function() {
     }
 
     function onError(e) {
-        var element = $('#geo-text');
-        element.innerHTML = 'ERROR';
-        console.log(e);
+      console.log(e)
+      var element = $('#geo-text')
+      element.html('ERROR')
+        
     }
 
 });
