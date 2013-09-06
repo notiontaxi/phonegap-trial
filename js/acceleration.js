@@ -1,13 +1,13 @@
 
 $(function() {
 
+
   var watchID = null
   var watching = false
   var $canvas = $('#myCanvas')
 
 
   $('#acc-action').click(function(e){
-    console.log('click')
     if(!watching){
       document.addEventListener("deviceready", onDeviceReady, false);
       watching = true;
@@ -27,7 +27,7 @@ $(function() {
     }
 
     function startWatching() {
-        var options = { frequency: 300 };
+        var options = { frequency: 400 };
         watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, options);
         console.log('start acc watching');
     }    
