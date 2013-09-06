@@ -34,7 +34,7 @@ $(function() {
     }
 
     function startWatching() {
-        navigator.screenOrientation.set('portrait')
+        //navigator.screenOrientation.set('portrait')
         var options = { frequency: 300 };
         watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, options);
         console.log('start acc watching');
@@ -74,7 +74,7 @@ $(function() {
 
     function stopWatching() {
         if (watchID) {
-            navigator.screenOrientation.set('fullSensor')
+            //navigator.screenOrientation.set('fullSensor')
             navigator.accelerometer.clearWatch(watchID);
             console.log('stop acc watching');
             watchID = null;
