@@ -28,7 +28,7 @@ $(function() {
 
     function startWatching() {
         navigator.screenOrientation.set('portrait')
-        var options = { frequency: 400 };
+        var options = { frequency: 300 };
         watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, options);
         console.log('start acc watching');
     }    
