@@ -12,7 +12,14 @@ $(function() {
   });
 
   $('#take-photo').click(function(e){
-    navigator.camera.getPicture(drawPicture, onError, { quality: 50 });
+    navigator.camera.getPicture(
+      drawPicture, 
+      onError, 
+      { 
+        quality: 50 
+        destinationType: destinationType.DATA_URL 
+      }
+  
   })
 
 
