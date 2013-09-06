@@ -5,6 +5,8 @@ http://docs.phonegap.com/en/3.0.0/cordova_accelerometer_accelerometer.md.html#Ac
 
 $(function() {
 
+  //window.addEventListener('resize', resizeCanvas, false)
+
   $('#acc-action').click(function(e){
     console.log('click...');
       // Wait for Cordova to load
@@ -15,9 +17,10 @@ $(function() {
     });
 
     // The watch id references the current `watchAcceleration`
-    var watchID = null;
-    var watching = false;
-    var currentContext;
+    var watchID = null
+    var watching = false
+    var currentContext
+    var canvas = document.createElement('canvas')
 
     // Cordova is ready
     //
@@ -42,12 +45,24 @@ $(function() {
       var width = parseFloat($referenceElement.css("width"));
 
       //currentContext = createContext(width, 200)
+      var canvas = document.getElementById("myCanvas")
+
+
+      canvas.width  = 300
+      canvas.height = 300
+      canvas.style.width  = '300px'
+      canvas.style.height = '300px'
+      canvas.style.top  = '0px'
+      canvas.style.left = '0px'      
+
+      //resizeCanvas()
       currentContext = document.getElementById("myCanvas").getContext("2d")
-      currentContext.rect(0,0,200,200);
+      currentContext.clearRect( 0, 0, currentContext.canvas.width, currentContext.canvas.height)
+      currentContext.rect(0,0,300,300);
     }
 
     function createContext(width, height) {
-        var canvas = document.createElement('canvas');
+        
         canvas.width = width
         canvas.height = height
 
@@ -56,7 +71,12 @@ $(function() {
         return canvas.getContext("2d")
     }    
 
-
+        
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+        
     // Stop watching the acceleration
     //
     function stopWatch() {
