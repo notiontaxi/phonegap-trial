@@ -19,8 +19,6 @@
     <feature name="http://api.phonegap.com/1.0/device" />
     <preference name="permissions"                value="none"/>
 
-    <gap:plugin name="com.tsukurusha.phonegap.plugins.ScreenOrientation" />
-
     <!-- Customize your app and platform with the preference element. -->
     <preference name="phonegap-version"           value="2.9.0" />          <!-- all: current version of PhoneGap -->
     <preference name="orientation"                value="portait" />       <!-- all: default means both landscape and portrait are enabled -->
