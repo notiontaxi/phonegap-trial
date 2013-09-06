@@ -1,3 +1,0 @@
-<plugins>
-  <plugin name="ScreenOrientation" value="com.tsukurusha.phonegap.plugins.ScreenOrientation" />
-</plugins>
