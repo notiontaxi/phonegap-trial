@@ -16,11 +16,11 @@ $(function() {
       drawPicture, 
       onError, 
       { 
-        quality: 50 
+        quality: 50 ,
         destinationType: destinationType.DATA_URL 
       }
-  
-  })
+    }
+  )
 
 
   // Wait for cordova
