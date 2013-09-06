@@ -27,7 +27,7 @@ $(function() {
     }
 
     function startWatching() {
-        var options = { frequency: 300 };
+        var options = { frequency: 100 };
         watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, options);
         console.log('start acc watching');
     }    
