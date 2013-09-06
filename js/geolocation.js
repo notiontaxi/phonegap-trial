@@ -56,8 +56,7 @@ $(function() {
     function onError(e) {
       console.log(e)
       var element = $('#geo-text')
-      element.html('ERROR')
-        
+      element.html('ERROR')  
     }
 
 });
