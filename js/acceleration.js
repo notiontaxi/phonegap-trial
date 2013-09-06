@@ -8,7 +8,6 @@ $(function() {
 
 
   $('#acc-action').click(function(e){
-    console.log('start acc watching');
     if(!watching){
       document.addEventListener("deviceready", onDeviceReady, false);
       watching = true;
@@ -16,7 +15,6 @@ $(function() {
     });
 
   $('#acc-action-stop').click(function(e){
-    console.log('stop acc watching');
     if(watching){
       stopWatching();
       watching = true;
@@ -31,23 +29,24 @@ $(function() {
     function startWatching() {
         var options = { frequency: 50 };
         watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, options);
+        console.log('start acc watching');
     }    
 
     function onSuccess(acceleration) {
         var element = $('#text');
         //var text = 'Acceleration X: ' + acceleration.x;
 
-        var r = Math.round(acceleration.x)*20)%255
-        var g = Math.round(acceleration.y)*20)%255
-        var b = Math.round(acceleration.y)*20)%255
+        var r = (Math.round(acceleration.x)*20)%255
+        var g = (Math.round(acceleration.y)*20)%255
+        var b = (Math.round(acceleration.y)*20)%255
 
         var color = "#"+r+""+g+""+b;
         var invertedColor = "#"+255-r+""+255-g+""+255-b;
 
         element.html(color)    
         $canvas.css({
-            background-color : color
-          , color: invertedColor
+            'background-color' : color
+          , 'color': invertedColor
         });
     }
 
@@ -61,6 +60,7 @@ $(function() {
     function stopWatching() {
         if (watchID) {
             navigator.accelerometer.clearWatch(watchID);
+            console.log('stop acc watching');
             watchID = null;
         }
     }
