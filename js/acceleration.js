@@ -17,7 +17,7 @@ $(function() {
   $('#acc-action-stop').click(function(e){
     if(watching){
       stopWatching();
-      watching = true;
+      watching = false;
     }
     });  
 
