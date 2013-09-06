@@ -9,7 +9,7 @@
     <script type="text/javascript" charset="utf-8" src="lib/jQuery/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="lib/jQuery/jquery.mobile-1.3.2.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-    <script src="lib/cordova.js"></script>
+   
 
   <body>
 
@@ -22,7 +22,7 @@
         <div id='content' data-role="content">   
              <a id="acc-action" href="#acceleration" data-role="button" data-icon="star">Accelerometer (example)</a>
              <a id="geo-action" href="#geolocation" data-role="button" data-icon="star">Geolocation (example)</a>     
-
+             <a id="cam-action" href="#camera" data-role="button" data-icon="star">Camera (example)</a> 
         </div>
 
         <div data-role="footer">
@@ -67,10 +67,34 @@
             <a id="geo-action-stop" href="#" data-role="button" data-rel="back" data-icon="back" class="center-button"> Home </a>   
           </div>
         </div><!-- /header -->
+    </div><!-- /page -->       
+
+
+    <!-- Acceleration Example -->
+    <div class="page" data-role="page" id="camera">
+
+        <div data-role="header">
+            <h1>Camera</h1>
+        </div><!-- /header -->
+
+        <div data-role="content">
+          
+          <div class="content-canvas" id='cam-canvas'>
+            <a id="take-photo" href="#" data-role="button" data-icon="gear" class="center-button"> Take picture </a>
+            <img id="picture-frame" src="" />
+          </div>
+        </div><!-- /content -->
+
+        <div data-role="footer">
+          <div class="center-wrapper">
+            <a id="cam-action-stop" href="#" data-role="button" data-rel="back" data-icon="back" class="center-button"> Home </a>   
+          </div>
+        </div><!-- /header -->
     </div><!-- /page -->        
 
   </body>
   <script type="text/javascript" charset="utf-8" src="js/acceleration.js"></script>
   <script type="text/javascript" charset="utf-8" src="js/geolocation.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/camera.js"></script>
 
 </html>

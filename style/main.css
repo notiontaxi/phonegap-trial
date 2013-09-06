@@ -23,7 +23,7 @@ html, body {
 }
 
 .content-canvas{
-  height:100%;
+  height:98%;
 }
 
 .center-button{
@@ -33,4 +33,10 @@ html, body {
 
 #acc-text{
   text-shadow:0px;
+}
+
+#picture-frame{
+  display: none;
+  width: 100%;
+  height: 100%;
 }
