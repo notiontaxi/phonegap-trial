@@ -4,7 +4,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "de.notiontaxi.phonegap.trial"
-        version   = "1.0.0">
+        version   = "0.0.3">
 
     <name>Phonegap-trial</name>
 
@@ -17,7 +17,6 @@
     </author>
 
     <feature name="http://api.phonegap.com/1.0/device" />
-    <preference name="permissions"                value="none"/>
 
     <!-- Customize your app and platform with the preference element. -->
     <preference name="phonegap-version"           value="2.9.0" />          <!-- all: current version of PhoneGap -->
