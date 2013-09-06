@@ -43,14 +43,14 @@ $(function() {
         g = (g < 0) ? (g * -1) : g
         b = (b < 0) ? (b * -1) : b
 
-        r += 10
-        g += 10
-        b += 10  
+        r = 10;
+        g = 10;
+        b = 10 ; 
 
-        var color = "#"+r+""+g+""+b;
+        var color = 'rgb('+r+','+g+','+b+')';
         $canvas.css('background-color', color)
 
-        var invertedColor = "#"+255-r+""+255-g+""+255-b;
+        var invertedColor = 'rgb('+(255-r)+','+(255-g)+','+(255-b)+')';
         var text = color+" \n"+"X:"+acceleration.x+" Y:"+acceleration.y+" Z:"+acceleration.z
         $element.css('color', invertedColor)
         $element.html(text)   
