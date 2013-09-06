@@ -7,6 +7,7 @@ $(function() {
 
 
   $('#acc-action').click(function(e){
+    console.log('click')
     if(!watching){
       document.addEventListener("deviceready", onDeviceReady, false);
       watching = true;
