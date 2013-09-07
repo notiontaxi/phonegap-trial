@@ -2,6 +2,8 @@
 $(function() {
 
   var $canvas = $('#cam-canvas')
+  var pictureSource; 
+  var destinationType;
 
   $('#cam-action').click(function(e){
     document.addEventListener("deviceready", onDeviceReady, false);
@@ -12,14 +14,17 @@ $(function() {
       drawPicture, 
       onError, { 
         quality: 50,
-        destinationType: navigator.camera.DestinationType.DATA_URL 
+        destinationType: destinationType.DATA_URL 
       });
+ 
   })
 
 
   // Wait for cordova
   function onDeviceReady() {
     console.log('starting camera example');
+    pictureSource = navigator.camera.PictureSourceType;
+    destinationType = navigator.camera.DestinationType;    
   }
 
   function drawPicture(data){
