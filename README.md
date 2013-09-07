@@ -2,7 +2,7 @@
 
 The readme page and the source code of this repository was written for the course 'Current Trends in Web Standards-based UI Design', which took place at the HTW Berlin.
 
-
+You can [download](https://build.phonegap.com/apps/541639/builds) the app and test it.
 [Here](http://prezi.com/-yhprmlndddg/untitled-prezi/?utm_campaign=share&utm_medium=copy) you can find the corresponding presentation.
 
 
