@@ -12,10 +12,12 @@ $(function() {
   $('#take-photo').click(function(e){
     navigator.camera.getPicture(
       drawPicture, 
-      onError, { 
-        quality: 50,
-        destinationType: destinationType.DATA_URL 
-      });
+      onError, { quality : 75,
+      destinationType : Camera.DestinationType.DATA_URL,
+      sourceType : Camera.PictureSourceType.CAMERA,
+      allowEdit : true,
+      encodingType: Camera.EncodingType.JPEG,
+      saveToPhotoAlbum: true });
  
   })
 
