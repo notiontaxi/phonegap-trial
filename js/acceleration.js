@@ -55,7 +55,6 @@ $(function() {
         $element.css('color', invertedColor)
         $element.html(text)   
 
-        
     }
 
     function onError(e) {

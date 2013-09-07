@@ -15,7 +15,7 @@ $(function() {
       onError, { quality : 75,
       destinationType : Camera.DestinationType.DATA_URL,
       sourceType : Camera.PictureSourceType.CAMERA,
-      allowEdit : true,
+      allowEdit : false,
       encodingType: Camera.EncodingType.JPEG,
       saveToPhotoAlbum: true });
  
