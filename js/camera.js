@@ -12,12 +12,7 @@ $(function() {
   });
 
   $('#take-photo').click(function(e){
-    navigator.camera.getPicture(
-      drawPicture, 
-      onError, 
-      { 
-        quality: 50 
-      });
+    navigator.camera.getPicture(drawPicture, onError, { quality: 50 });
   })
 
 
@@ -29,7 +24,6 @@ $(function() {
   }
 
   function drawPicture(data){
-    console.log(data)
     image = $('#picture-frame')[0]
     image.style.display = 'block'
     image.src = "data:image/jpeg;base64," + data
